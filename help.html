@@ -19,38 +19,18 @@
 
     <div class="section">
       <h1 class="title">Teams Meeting Link Converter</h1>
-      <a class="link" href="help.html">How do I use this?</a>
       <br>
-      
+      <h2 class="subtitle">How to use</h2>
+      <p>Right click and copy the created Teams meeting link in Google Calendar:</p>
+      <img src="get_link.jpg">
       <br>
-      <div class="field">
-        <label class="label">Teams Meeting Link</label>
-        <div class="control">
-          <input v-on:keyup.enter="convert" class="input" type="text" placeholder="Paste link in here" id="iptLink">
-        </div>
-      </div>
+      <p>Paste the link into the link text box and press convert:</p>
+      <img src="paste_web.jpg">
+      <p>Copy the resulting text with the Copy to Clipboard button:</p>
+      <img src="copy_to_clipboard.png">
+      <p>Paste the invite in the meeting description</p>
+      <img src="paste_description.png">
 
-      <div class="columns is-mobile">
-        <div class="column">
-          <div class="field">
-            <button class="button" type="submit" id="btnDecrypt" onclick='convert()'>Convert</button>
-            
-          </div>
-        </div>
-        
-      </div>
-      
-      <br>
-      
-      <div class="box" id="content" style="display:none;">
-        <pre id="json_box"></pre>        
-      </div>
-      
-      <div class="box">
-        <p class="text" id="output"></p>
-      </div>
-      <button class="button" type="submit" id="btnDecrypt" onclick='copy()'>Copy to clipboard</button>
-    </div>
 
   </section>
 
