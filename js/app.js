@@ -4,7 +4,14 @@ function stripSpaces(str) {
 
 function convert() {
   var meetingLink = document.getElementById("iptLink").value;
-  document.getElementById("output").innerHTML = `Microsoft Teams meeting<br><a href="${meetingLink}">Click here to join the meeting</a>`;
+  if ((isValidHttpUrl(meetingLink)) && (meetingLink.includes("https://www.google.com/url?q=https://teams.microsoft.com/l/meetup-join"))) {
+    document.getElementById("output").innerHTML = `Microsoft Teams meeting<br><a href="${meetingLink}">Click here to join the meeting</a>`;
+    document.getElementById("btnCopy").disabled = false;
+  } else {
+    document.getElementById("output").innerHTML = `Please paste a valid URL`;
+    document.getElementById("btnCopy").disabled = true;
+  }
+  
 }
 
 function copy() {
@@ -23,4 +30,16 @@ function copyElementToClipboard(element) {
   window.getSelection().addRange(range);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
+}
+
+function isValidHttpUrl(string) {
+  let url;
+  
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;  
+  }
+
+  return url.protocol === "http:" || url.protocol === "https:";
 }
