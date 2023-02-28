@@ -3,8 +3,10 @@ function stripSpaces(str) {
 }
 
 function convert() {
-  var meetingLink = document.getElementById("iptLink").value;
+  var meetingLink = decodeURIComponent(decodeURI(document.getElementById("iptLink").value));
   if ((isValidHttpUrl(meetingLink)) && (meetingLink.includes("https://teams.microsoft.com/l/meetup-join"))) {
+    var restOfLink = meetingLink.split("https://teams.microsoft.com/l/meetup-join")[1]
+    meetingLink = "https://teams.microsoft.com/l/meetup-join" + restOfLink;
     document.getElementById("output").innerHTML = `Microsoft Teams meeting<br><a href="${meetingLink}">Click here to join the meeting</a>`;
     document.getElementById("btnCopy").disabled = false;
   } else {
