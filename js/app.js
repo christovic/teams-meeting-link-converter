@@ -36,7 +36,7 @@ function isValidHttpUrl(string) {
   let url;
   
   try {
-    url = new URL(string);
+    url = new URL(unescape(string));
   } catch (_) {
     return false;  
   }
