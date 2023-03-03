@@ -3,7 +3,7 @@ function stripSpaces(str) {
 }
 
 function convert() {
-  var meetingLink = decodeURIComponent(decodeURI(document.getElementById("iptLink").value));
+  var meetingLink = document.getElementById("iptLink").value);
   if ((isValidHttpUrl(meetingLink)) && (meetingLink.includes("teams.microsoft.com"))) {
     document.getElementById("output").innerHTML = `Microsoft Teams meeting<br><a href="${meetingLink}">Click here to join the meeting</a>`;
     document.getElementById("btnCopy").disabled = false;
